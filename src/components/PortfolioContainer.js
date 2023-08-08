@@ -1,13 +1,23 @@
 import React from "react";
-import Stock from "./Stock";
+import PortfolioItem from "./PortfolioItem";
 
-function PortfolioContainer() {
+function PortfolioContainer({portfolioArray, setPortfolioArray}) {
   return (
     <div>
       <h2>My Portfolio</h2>
-      {
-        //render your portfolio stocks here
-      }
+      {portfolioArray.map((stock) => (
+        <PortfolioItem
+        key={stock.id}
+        id={stock.id}
+        ticker={stock.ticker}
+        name={stock.name}
+        type={stock.type}
+        price={stock.price}
+        stock={stock}
+        portfolioArray={portfolioArray}
+        setPortfolioArray={setPortfolioArray}
+        />
+      ))}
     </div>
   );
 }
